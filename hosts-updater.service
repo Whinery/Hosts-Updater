@@ -1,0 +1,10 @@
+# hosts-updater.service
+
+[Unit] 
+Description= hosts-updater
+
+[Service] 
+Type= simple 
+
+ExecStart= /usr/local/bin/hosts-updater.sh
+

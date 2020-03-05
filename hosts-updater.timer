@@ -1,0 +1,12 @@
+# hosts-updater.timer
+
+[Unit]
+Description=hosts-updater
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+Unit=hosts-updater.service
+
+[Install]
+WantedBy=timers.target
