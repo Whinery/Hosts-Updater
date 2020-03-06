@@ -16,7 +16,7 @@ Copy file 'hosts-updater.sh' to '/usr/local/bin/'
 From the 'terminal window' enter
 'systemctl enable hosts-updater.timer'
 
-then enter
+then
 
 'sudo /usr/local/bin/hosts-updater.sh'
 
