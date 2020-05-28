@@ -1,7 +1,7 @@
 # Hosts-Updater
 Update hosts file to help prevent ads and malware on Linux computers.
 Works with Arch, Manjaro, Debian systems and more.
-NOTE: Debian users may have to install 'curl'.
+
 The script will only replace the /etc/hosts file if the tmp file meets all conditions so it dosen't break your hosts file if something goes wrong.
 Always make a one time backup of '/etc/hosts' before you start.
 Will update itself after midnight every night or when the computer is turn on any time after midnight.
@@ -20,3 +20,5 @@ then
 'sudo /usr/local/bin/hosts-updater.sh'
 
 If no errors reboot your computer for systemd to control 'hosts' updates.
+
+NOTE: Debian users may have to install 'curl'.
