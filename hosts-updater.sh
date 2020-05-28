@@ -2,15 +2,13 @@
 
 # Thanks to Dan Pollock for supplying and maintaining all the data at https://someonewhocares.org/hosts/ipv6/hosts
 
-# wget is required from Add/Remove Software if not already installed
-
 # Place this file in '/usr/local/bin/' directory and make executable (chmod =755)
 
 ### *** ONLY REMOVE the "#" symbol from the BEGINNING of one of the 2 LINES BELOW! *** ###
 
 sleep 20
-wget -q --output-document=/etc/hostss https://someonewhocares.org/hosts/ipv6/hosts  # Both ipv4 and ipv6
-# wget -q --output-document=/etc/hostss https://someonewhocares.org/hosts/hosts     # ipv4
+curl https://someonewhocares.org/hosts/ipv6/hosts -s -o /etc//hostss      # Both ipv4 and ipv6
+# curl https://someonewhocares.org/hosts/hosts -s -o /etc//hostss         # ipv4
 
 file=/etc/hostss                                                          # set file name for tmp file
 minimumsize=400000                                                        # set minimum file size in bytes
