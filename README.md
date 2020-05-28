@@ -5,8 +5,6 @@ The script will only replace the /etc/hosts file if the tmp file meets all condi
 Always make a one time backup of '/etc/hosts' before you start.
 Will update itself after midnight every night or when the computer is turn on any time after midnight.
 
-'wget' is required from the Add/Remove Software if not already on your system.
-
 Copy files 'hosts-updater.service' and 'hosts-updater.timer' to '/lib/systemd/system/'
 
 Open 'hosts-updater.sh' and read the comments for more important information.
