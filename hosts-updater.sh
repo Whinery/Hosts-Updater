@@ -7,19 +7,21 @@
 ### *** ONLY REMOVE the "#" symbol from the BEGINNING of one of the 2 LINES BELOW! *** ###
 
 sleep 20
-curl https://someonewhocares.org/hosts/ipv6/hosts -s -o /etc//hostss      # Both ipv4 and ipv6
-# curl https://someonewhocares.org/hosts/hosts -s -o /etc//hostss         # ipv4
+file0=/tmp/hostss                                                         # set file name for /tmp/hostss
+file1=/etc/hosts                                                          # set file name for /etc/hosts
 
-file=/etc/hostss                                                          # set file name for tmp file
+curl https://someonewhocares.org/hosts/ipv6/hosts -s -o "$file0"          # Both ipv4 and ipv6
+# curl https://someonewhocares.org/hosts/hosts -s -o "$file0"             # ipv4
+
 minimumsize=400000                                                        # set minimum file size in bytes
-actualsize=$(wc -c <"$file")                                              # check actual size of hostss file
+actualsize=$(wc -c <"$file0")                                             # check actual size of hostss file
 if [ $actualsize -ge $minimumsize ]
 then
-	rm -f /etc/hosts                                                  # remove /etc/hosts file
-	echo 127.0.1.1 "$HOSTNAME" >> /etc/hosts                          # Create and add the first line to /etc/hosts
-	cat /etc/hostss >> /etc/hosts                                     # Append hostss to hosts
-	chmod =444 /etc/hosts                                             # Attributes "read" for owner/group/others
-	rm -f /etc/hostss                                                 # Deleting the file /etc/hostss
+	rm -f "$file1"                                                    # remove /etc/hosts file
+	echo 127.0.1.1 "$HOSTNAME" >> "$file1"                            # Create and add the first line to /etc/hosts
+	cat "$file0" >> "$file1"                                          # Append hostss to hosts
+	chmod =444 "$file1"                                               # Attributes "read" for owner/group/others
+	rm -f "$file0"                                                    # Deleting the file /tmp/hostss
 else
-	rm -f /etc/hostss                                                 # Deleting the file /etc/hostss
+	rm -f "$file0"                                                    # Deleting the file /tmp/hostss
 fi
