@@ -1,6 +1,6 @@
 # Hosts-Updater
 Update hosts file to help prevent ads and malware on Linux computers.
-Works with Arch, Manjaro, Debian systems and more.
+Works with Arch, Garuda, Manjaro, Debian systems and more.
 
 *** Always make a one time backup of '/etc/hosts' before you start. ***
 
