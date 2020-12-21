@@ -1,8 +1,9 @@
 # Hosts-Updater
-Update hosts file to help prevent ads and malware on Linux computers.
+
+Update hosts file to help prevent ads and malware on Linux computers automatically.
 Works with Arch, Garuda, Manjaro, Debian systems and more.
 
-*** Always make a one time backup of '/etc/hosts' before you start. ***
+*** When first run a one time backup of '/etc/hosts' will be created and saved as '/etc/hosts.bak'. ***
 
 The script will only replace the /etc/hosts file if the tmp file meets all conditions so it dosen't break your hosts file if something goes wrong.
 Will update itself after midnight every night or when the computer is turn on any time after midnight.
