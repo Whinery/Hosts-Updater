@@ -5,19 +5,20 @@
 file1=/etc/hosts                                                          # set file name for /etc/hosts
 file2=/etc/hosts.bak                                                      # set file name for /etc/hosts.bak
 
-if (sudo -vn && sudo -ln) 2>&1; then
-	if [ -e "$file2" ]; then
-		rm -f "$file1"
-		cp "$file2" "$file1"
-		sudo systemctl disable hosts-updater.timer
-		rm -f /lib/systemd/system/hosts-updater.service
-		rm -f /lib/systemd/system/hosts-updater.timer
-		rm -f /usr/local/bin/hosts-updater.sh
-		echo " "
-		echo "Please reboot for changes to take effect!"
-		echo " "
-	fi
+if [[ $EUID -ne 0 ]]; then
+	echo
+	echo "Permission Denied --> sudo ./uninstall.sh <-- Required"     # display echo message 
+	echo
 else
-	echo "Permission Denied --> sudo ./uninstall.sh <-- Required"
+	if [ -e "$file2" ]; then                                          # test for file hosts.bak
+		rm -f "$file1"                                            # delete file hosts
+		cp "$file2" "$file1"                                      # copy file hosts.bak to hosts
+	fi
+	systemctl disable hosts-updater.timer                             # disable systemctl timer
+	rm -f /lib/systemd/system/hosts-updater.service                   # remove file hosts-updater.service
+	rm -f /lib/systemd/system/hosts-updater.timer                     # remove file hosts-updater.timer
+	rm -f /usr/local/bin/hosts-updater.sh                             # remove file hosts-updater.sh
+	echo " "
+	echo "Please reboot for changes to take effect!"                  # display echo message
+	echo " "
 fi
-
