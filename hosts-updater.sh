@@ -18,10 +18,10 @@ curl https://someonewhocares.org/hosts/ipv6zero/hosts/ -s -o "$file0"     # Both
 minimumsize=400000                                                        # set minimum file size in bytes
 actualsize=$(wc -c <"$file0")                                             # check actual size of hostss file
 if [ $actualsize -ge $minimumsize ]; then
-	rm -f "$file1"                                                        # remove /etc/hosts file
-	cat "$file0" >> "$file1"                                              # Append hostss to hosts
-	chmod =444 "$file1"                                                   # Attributes "read" for owner/group/others
-	rm -f "$file0"                                                        # Deleting the file /tmp/hostss
+	rm -f "$file1"                                                    # remove /etc/hosts file
+	cat "$file0" >> "$file1"                                          # Append hostss to hosts
+	chmod =444 "$file1"                                               # Attributes "read" for owner/group/others
+	rm -f "$file0"                                                    # Deleting the file /tmp/hostss
 else
-	rm -f "$file0"                                                        # Deleting the file /tmp/hostss
+	rm -f "$file0"                                                    # Deleting the file /tmp/hostss
 fi
