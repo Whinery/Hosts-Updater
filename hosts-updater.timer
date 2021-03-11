@@ -1,0 +1,13 @@
+# hosts-updater.timer
+
+[Unit]
+Description=hosts-updater
+
+[Timer]
+OnBootSec=10 min
+OnUnitActiveSec=24hr
+Persistent=true
+Unit=hosts-updater.service
+
+[Install]
+WantedBy=timers.target
